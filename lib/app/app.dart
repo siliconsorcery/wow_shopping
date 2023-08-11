@@ -63,7 +63,16 @@ class _ShopWowAppState extends State<ShopWowApp> {
                 navigatorKey: _navigatorKey,
                 title: _appTitle,
                 theme: generateLightTheme(),
-                home: const MainScreen(),
+                home: ScrollConfiguration(
+                  behavior: const ScrollBehavior().copyWith(
+                    dragDevices: {
+                      PointerDeviceKind.mouse,
+                      PointerDeviceKind.touch,
+                    },
+                    overscroll: false,
+                  ),
+                  child: const MainScreen(),
+                ),
               ),
             );
           }
